@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<!-- Start of content block -->
+<div style="width: 50%; margin: 0 auto; text-align: left; padding: 20px; border: 1px solid #ccc;">
+    <!-- Center and left align the content -->
+    <h1 style="text-align: center;">{% trans "Sign Up" %}</h1>
+
+    <p style="text-align: center;">
+        {% blocktrans %}
+        Already have an account? Then please <a href="{{ login_url }}">sign in</a>.
+        {% endblocktrans %}
+    </p>
+
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        <div style="text-align: center;">
+            <!-- Adjusted for central alignment -->
+            <div style="margin-bottom: 10px;">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+        </div>
+        
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        
+        <div style="text-align: center; margin-top: 10px;">
+            <!-- Adjusted for central alignment -->
+            <button type="submit" style="padding: 8px 16px;">{% trans "Sign Up" %} &raquo;</button>
+        </div>
+    </form>
+</div>
+<!-- End of content block -->
+{% endblock %}
