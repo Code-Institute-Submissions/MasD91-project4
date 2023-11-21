@@ -50,11 +50,25 @@
                     {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
-                    Journeys within the realm of Project4's innovation.
+                    Read about my journey in Project 4!
                 </span>
             </div>
         </div>
     </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                {{ message | safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
@@ -72,6 +86,13 @@
 
         </p>
     </footer>
+    <script>
+        setTimeout(function() {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
 </body>
 
 </html>
