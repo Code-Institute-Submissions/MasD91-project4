@@ -111,10 +111,21 @@
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form|crispy }}
+                    <!-- Render form fields manually -->
+                    <div class="form-group">
+                        <label for="id_name">Name</label>
+                        {{ comment_form.name }}
+                        <!-- Display form errors if any -->
+                        {% for error in comment_form.name.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <!-- Repeat this pattern for each field in your form -->
+                
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
+                
                 
                 {% endif %}
                 {% endif %}
