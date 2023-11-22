@@ -109,3 +109,43 @@ body {
     background: transparent;
     border: none;
 }
+
+/* Adjust styles for form elements */
+.form-group {
+    margin-bottom: 15px; /* Spacing between form elements */
+}
+
+/* Set width for the input and textarea */
+#postTitle,
+#postContent {
+    width: 100%;
+}
+
+/* Ensure the button is displayed inline */
+button {
+    display: inline-block;
+}
+
+.sign-out-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd; /* Thin border around the container */
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow for a subtle effect */
+}
+
+.sign-out-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .sign-out-container {
+        width: 90%;
+    }
+}

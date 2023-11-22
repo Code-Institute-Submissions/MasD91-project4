@@ -3,52 +3,127 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-md-8" id="existingPosts">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-body">
+                            <!-- Link to the detailed view of each post -->
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
+                            <!-- Display a brief excerpt of the post content -->
                             <p class="card-text">{{ post.excerpt }}</p>
+                            <!-- Display the featured image of the post -->
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
+                                <!-- If no featured image, display a default image -->
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
+                                <!-- Display the featured image if available -->
                                 <img class="card-img-top" src="{{ post.featured_image.url }}">
                                 {% endif %}
                             </div>
                             <hr />
+                            <!-- Display post creation date, number of likes, and author -->
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
-                            <p class="author">Author: {{ post.author }}</p><!-- Moved the author here -->
+                            <p class="author">Author: {{ post.author }}</p>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:2 %}
             </div>
             <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
         </div>
+
+        <!-- Section for creating new posts -->
+        <div class="col-md-4">
+            <h2>What's next?</h2>
+            <p>Your messages will play a huge role in shaping my next blog post. Shoot a message or share a topic, and your thoughts will help set the stage for my upcoming posts!</p>
+            <!-- Form for submitting new posts -->
+            <form id="newPostForm">
+                <div class="form-group">
+                    <input type="text" id="postTitle" class="form-control" placeholder="Enter title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="postContent" class="form-control" placeholder="Enter content" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
+
+<script>
+    // JavaScript for handling posts, local storage, and UI elements
+    document.addEventListener("DOMContentLoaded", function() {
+        let posts = JSON.parse(localStorage.getItem('posts')) || [];
+        const postsContainer = document.getElementById('existingPosts');
+        const isAdmin = true; // Assuming user identification as admin
+
+        function deletePost(index) {
+            posts.splice(index, 1);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            postsContainer.innerHTML = '';
+            posts.forEach((post, i) => {
+                const newPost = createPostElement(post, i);
+                postsContainer.appendChild(newPost);
+            });
+            assignDeleteButton();
+        }
+
+        function createPostElement(post, index) {
+            const newPost = document.createElement('div');
+            newPost.className = 'col-md-6';
+            newPost.innerHTML = `
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">${post.title}</h2>
+                        <p class="card-text">${post.content}</p>
+                        ${isAdmin ? `<button class="delete-btn">Delete</button>` : ''}
+                    </div>
+                </div>
+            `;
+            return newPost;
+        }
+
+        function assignDeleteButton() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    deletePost(index);
+                });
+            });
+        }
+
+        posts.forEach((post, index) => {
+            const newPost = createPostElement(post, index);
+            postsContainer.appendChild(newPost);
+        });
+
+        document.getElementById('newPostForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const newPost = { title, content };
+            posts.push(newPost);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            const newPostElem = createPostElement(newPost, posts.length - 1);
+            postsContainer.appendChild(newPostElem);
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            assignDeleteButton();
+        });
+
+        assignDeleteButton();
+    });
+</script>
 
 {% endblock content %}

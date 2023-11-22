@@ -1,28 +1,50 @@
 {% extends "base.html" %}
+<!-- Extends the base.html template to inherit its structure and layout -->
 
 {% load i18n %}
 {% load account socialaccount %}
+<!-- Loads template tags necessary for internationalization and account/social account -->
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
+<!-- Sets the page title to "Sign In" using translation -->
 
 {% block content %}
+<!-- Defines a block for the main content of the page -->
 
 <div class="container">
+    <!-- Bootstrap container for responsive layout -->
     <div class="row justify-content-center">
+        <!-- Bootstrap row, centers content horizontally -->
         <div class="col-md-6 mt-5">
+            <!-- Bootstrap column for medium-sized devices, adds top margin -->
             <div class="card">
+                <!-- Bootstrap card component for styling -->
                 <div class="card-body">
+                    <!-- Card body content -->
                     <h3 class="card-title">Sign In to Project4</h3>
+                    <!-- Title for the sign-in section -->
 
-                    <p class="card-text">Welcome back to Project4's community! Ready to engage by leaving comments or liking posts? Log in now! If you're new, seize the opportunity to <a class='link' href='{{ signup_url }}'>join us</a>.</p>
+                    <p class="card-text">
+                        Welcome back to Project4's community! Ready to engage by leaving comments or liking posts? Log in now!
+                        If you're new, seize the opportunity to <a class='link' href='{{ signup_url }}'>join us</a>.
+                    </p>
+                    <!-- Text encouraging users to sign in or sign up -->
 
                     <form class="login" method="POST" action="{% url 'account_login' %}">
+                        <!-- Sign-in form with method set to POST, submits to 'account_login' URL -->
                         {% csrf_token %}
+                        <!-- Adds CSRF token for security -->
+
                         {{ form.as_p }}
+                        <!-- Renders form fields as paragraphs -->
+
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                         {% endif %}
+                        <!-- If there's a redirect field value, creates a hidden input field for redirect information -->
+
                         <button class="btn btn-primary" type="submit">Sign In</button>
+                        <!-- Submit button for signing in -->
                     </form>
                 </div>
             </div>
@@ -31,3 +53,4 @@
 </div>
 
 {% endblock %}
+<!-- End of content block -->

@@ -1,20 +1,38 @@
 <!-- sign_out.html -->
 {% extends "base.html" %}
+<!-- Extending the base template for consistent layout -->
 
 {% load i18n %}
+<!-- Loading the internationalization template tags -->
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
+<!-- Block to set the page title to "Sign Out" using translation -->
 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+<!-- Block for the main content of the sign-out page -->
+<div class="sign-out-page"> <!-- Added class for the sign-out page -->
+    <div class="sign-out-container"> <!-- Added class for the sign-out container -->
+        <h1>{% trans "Sign Out" %}</h1>
+        <!-- Displaying the heading "Sign Out" using translation -->
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+        <!-- Displaying a confirmation message for signing out using translation -->
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+        <form method="post" action="{% url 'account_logout' %}">
+            <!-- Sign-out form with POST method and action set to the account_logout URL -->
+            {% csrf_token %}
+            <!-- CSRF token to prevent Cross-Site Request Forgery (CSRF) -->
+
+            {% if redirect_field_value %}
+            <!-- Checking if a redirect field value exists -->
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            <!-- Creating a hidden input field for redirect information if available -->
+            {% endif %}
+
+            <button type="submit">{% trans 'Sign Out' %}</button>
+            <!-- Submit button for signing out, displaying text using translation -->
+        </form>
+    </div>
+</div>
 {% endblock %}
+<!-- End of content block -->
