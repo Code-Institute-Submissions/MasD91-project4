@@ -19,9 +19,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['md-project-4-db497f716926.herokuapp.com', 'localhost', '8000-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io', '8080-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['md-project-4-db497f716926.herokuapp.com', 'localhost', '8000-masd91-project4-u9ydcka4vmw.ws-eu106.gitpod.io',]
 
-CSRF_TRUSTED_ORIGINS = ['https://md-project-4-db497f716926.herokuapp.com', 'https://localhost', 'https://8000-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://md-project-4-db497f716926.herokuapp.com', 'https://localhost', 'https://8000-masd91-project4-u9ydcka4vmw.ws-eu106.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
