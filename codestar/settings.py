@@ -19,9 +19,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['md-project-4-db497f716926.herokuapp.com', 'localhost', '8000-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['md-project-4-db497f716926.herokuapp.com', 'localhost', '8000-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io', '8080-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://md-project-4-db497f716926.herokuapp.com', 'https://localhost', 'https://8000-masd91-project4-1egqkygyp66.ws-eu106.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    'crispy_bootstrap4',
     'blog',
 ]
 
@@ -145,12 +146,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
