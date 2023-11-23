@@ -1,110 +1,117 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Project-4
+<h1 align="center">Project4</h1>
 
-Welcome MasD91,
+[View the live project here.](https://md-project-4-db497f716926.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This Python-based project is designed to offer simplicity and informative content, ensuring ease of navigation across various devices. The project aims to deliver a user-friendly interface, providing comprehensive information while ensuring compatibility and responsiveness across different device screens.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## User Experience (UX)
 
-## Gitpod Reminders
+- ### User stories
+  - #### First Time Visitor Goals
+    1. First time visitors should be able to see that the purpose of this page is view blog posts by me.
+    2. They should also be able to easily navigate through the different pages internally and externally.
+  - #### Returning Visitor Goals
+    1. Returning visitors should be able to easily access different stages of the blog event.
+    2. Returning visitors should be able to give feedback on the information provided and also be able to ask questions.
+    3. They should also be able to visit appropriate external sites within the community.
+  - #### Frequent User Goals
+    1. Frequent users should be able to signup up to further their communications.
+    2. The site incorporates features allowing users to create accounts to engage in commenting and posting, fostering a sense of community interaction and contribution.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- ### Design
+  - #### Colour Scheme
+    - The site is styled to resemble a blog post, with a color scheme reminiscent of Reddit, predominantly featuring shades of grey, black, and red (#FF4500) to evoke a sense of familiarity and readability akin to the Reddit platform.
 
-`python3 -m http.server`
+  - #### Typography
+    - Utilizing the Roboto font as the primary typeface gives the website a professional feel, aligning with the context of the blog and enhancing the overall thematic presentation.
+  - #### Imagery
+    - Images used are posted by myself, the admin.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## Features
+- Responsive on all device sizes
+- Interactive elements
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Technologies Used
 
-A blue button should appear to click: _Make Public_,
+### Languages Used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JS] (https://en.wikipedia.org/wiki/JavaScript)
+- [Python] (https://en.wikipedia.org/wiki/Python_(programming_language))
 
-Another blue button should appear to click: _Open Browser_.
+### Frameworks, Libraries & Programs Used
+1. [Font Awesome](https://fontawesome.com/): Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+2. [Git](https://git-scm.com/): Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub.
+3. [GitHub](https://github.com/): GitHub is used to store the project's code after being pushed from Git.
+4. [Django] (https://en.wikipedia.org/wiki/Django_(web_framework))
+5. [Cloudinary] (https://cloudinary.com/)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Testing
 
-To log into the Heroku toolbelt CLI:
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
+- [W3C JS Validator] (https://www.w3schools.com/js/js_validation.asp)
+- [Python Validator] (https://www.w3schools.com/python/python_ml_cross_validation.asp)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Testing User Stories from User Experience (UX) Section
 
-------
+- #### First Time Visitor Goals
+  1. First time visitors should be able to see that the purpose of this page is to blog.
+     - The first page that visitors are greeted with is the index page..
+       ![Greeting info](assets/gallery/Home.jpg)
+     - The user then has the option to register via the nav bar.
+       ![Register](assets/gallery/register.jpg)
+     - Users who register will have to wait for the admin to approve.
+       ![Approval](assets/gallery/admin-users.jpg)
+     - They can then sign in.
+       ![Sign in](assets/gallery/sign-in.jpg)
+  2. They should also be able to easily navigate through the different pages internally and externally.
+     - The site has been designed so that every internal page is easily accessible from the nav bar.
+       ![Navigation-bar](assets/gallery/nav-bar.jpg)
+     - The site also has the external links in the footer to be easily accessible.
+       ![External Links](assets/gallery/social.jpg)
 
-## Release History
+- #### Returning Visitor Goals
+  1. Returning visitors should be able to easily access different parts of the blog.
+     - Once they click the main post on the index page they will be shown a view ways to interact. One being that you can like/unlike the post. Another being that they can write comments.
+     ![Interact with post](assets/gallery/ineract-with-post.jpg)
+     - The comments will only show once the admin has approved.
+     ![Admin Comment approval](assets/gallery/admin-comments.jpg)
+  2. Returning visitors should be able to ask questions.
+     - On the right of the index page you will find a section which lets users post to the index page.
+     ![Next topic](assets/gallery/next-topic.jpg)
+     -They will then have the post appear under the adminds blog post.
+     ![Next topic post](assets/gallery/next-topic-post.jpg) 
+  
+- #### Frequent User Goals
+  1. Frequent users should be able to register and communicate with admin freely.
+     - The user would already be comfortable with the website layout and will know how to navigate to the sign-up page.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Further Testing
+- The website was tested on Google Chrome, Apple's browser, Internet Explorer, and Firefox.
+- The website was viewed on multiple devices, ranging from the latest Samsungs, iPhone 13s, and iPads.
+- Pages were tested regularly to ensure all links and media work.
+- Friends and family members were asked to review the site to help with design and errors to see if anything was missed.
 
-**September 20 2023:** Update Python version to 3.9.17.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Deployment
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### GitHub Pages
+The project was deployed to Heroku.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Credits
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Code
+- The majority of the code was written by the developer, with assistance from previous Python & Django modules.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Media
+- All media is uploaded by Admin via blog posts.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Acknowledgements
+- My mentor, Dario, helped me a lot along the way.
+- A developer friend, Ainsley Chang, also provided valuable assistance.
+- Tutor support at Code Institute for their immense support.
